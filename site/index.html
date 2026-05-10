@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Merge offline pick queues against reserved stock and create supervisor exceptions for conflicts.">
+  <title>PickPath · Working Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="masthead"><a class="brand" href="https://github.com/Nimisharani/pickpath">PickPath</a><span class="build-state"><i></i> live computation</span></header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">Offline warehouse reconciliation</p>
+      <h1>Run the decision,<br><em>inspect the evidence.</em></h1>
+      <p class="lede">Merge offline pick queues against reserved stock and create supervisor exceptions for conflicts.</p>
+    </section>
+    <section class="workspace" aria-label="Interactive project workspace">
+      <form id="workspace-form" class="control-panel">
+        <div class="panel-heading"><span>01</span><div><p>Inputs</p><h2>Configure the run</h2></div></div>
+        <div class="fields"><label class="field" for="availableStock"><span>Available stock</span><input id="availableStock" name="availableStock" type="number" value="20" min="0" max="10000" step="any" data-suggested-step="1"></label>
+<label class="field" for="reservedStock"><span>Already reserved</span><input id="reservedStock" name="reservedStock" type="number" value="8" min="0" max="10000" step="any" data-suggested-step="1"></label>
+<label class="field" for="deviceAPicks"><span>Device A offline picks</span><input id="deviceAPicks" name="deviceAPicks" type="number" value="7" min="0" max="10000" step="any" data-suggested-step="1"></label>
+<label class="field" for="deviceBPicks"><span>Device B offline picks</span><input id="deviceBPicks" name="deviceBPicks" type="number" value="9" min="0" max="10000" step="any" data-suggested-step="1"></label>
+<label class="field" for="resolution"><span>Conflict policy</span><select id="resolution" name="resolution"><option selected>supervisor_exception</option><option>last_write_wins</option></select></label></div>
+        <div class="actions"><button class="run" type="submit">Run analysis <span>→</span></button><button id="reset-button" class="reset" type="button">Reset</button></div>
+      </form>
+      <section id="results" class="result-panel" aria-live="polite" aria-busy="true">
+        <div class="panel-heading"><span>02</span><div><p>Output</p><h2>Decision trace</h2></div></div>
+        <div id="result-content" class="result-content"><div class="loading">Computing initial scenario…</div></div>
+      </section>
+    </section>
+  </main>
+  <footer><p>Built from the tested logic in <a href="https://github.com/Nimisharani/pickpath">Nimisharani/pickpath</a>.</p></footer>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
